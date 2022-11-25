@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@300;400;500;700&family=Titillium+Web:wght@300;400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(238, 238, 238);
+  font-family: "Titillium Web", sans-serif;
+  color: rgb(81, 81, 81);
+}
+
+.btn-primary {
+  background-color: #ff8fb1;
+  border-color: #ff8fb1;
+}
+
+.btn-primary:hover {
+  background-color: #80489c;
+  border-color: #80489c;
+}
+
+.btn-primary:focus {
+  background-color: #80489c;
+  border-color: #80489c;
+  outline: none;
+}
+
+.log-reg-card {
+  margin-top: 5em;
+  width: 25em;
+}
+
+.nav-link {
+  color: #ff8fb1;
+  margin-right: 2em;
+}
+
+.nav-link.no-margin {
+  margin-right: 0;
+}
+
+.nav-link:hover {
+  color: #de4875;
+}
+
+.nav-link:focus {
+  color: #de4875;
+  outline: none;
+}
+
+.navbar-brand {
+  font-family: "Alfa Slab One", cursive;
+  font-size: 2em;
+}
+
+.navbar-nav:first-child {
+  margin-left: 2em;
+}
+
+.user-picture {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 180px;
+  object-fit: cover;
+  object-position: center;
+}
+
+#dropdown-button:hover {
+  background-color: rgb(237, 237, 237);
+}
+
+.active {
+  color: #de4875;
+  text-decoration: underline;
+}
+
+.active-pill {
+  background-color: #80489c;
+  border-radius: 8px;
+}
+
+.active-pill a {
+  color: white;
+}
+
+.active-pill a:hover {
+  color: white;
+}
+
+.active-pill a:focus {
+  color: white;
+}
+
+.search-bar {
+  margin-right: 6rem;
+}
+
+.search-bar > input {
+  border-radius: 10px 0 0 10px;
+}
+
+.search-bar > input:focus,
+.search-bar > input:active {
+  border-radius: 10px 0 0 10px;
+  border-color: #80489c;
+  box-shadow: none;
+}
+
+.search-bar > button {
+  border-color: #80489c;
+  background-color: #80489c;
+  color: whitesmoke;
+  border-radius: 0 10px 10px 0;
+  font-size: 1.1em;
+}
+
+.search-bar > button:hover {
+  border-color: #ff8fb1;
+  background-color: #ff8fb1;
+  color: #80489c;
+  border-radius: 0 10px 10px 0;
+}
+
+.cart-button {
+  font-size: 1.5em;
+  color: #ff8fb1;
+  transition: color ease-in 0.2s;
+}
+
+.cart-button:hover {
+  color: #80489c;
+}
