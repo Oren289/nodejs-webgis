@@ -6,6 +6,7 @@ const { body, validationResult, check } = require("express-validator");
 
 require("../utils/db");
 const User = require("../model/user");
+const Cart = require("../model/cart");
 
 router.get("/", (req, res) => {
   if (req.session.user) {
@@ -51,6 +52,14 @@ router.post(
           password: hashedPassword,
         };
         await User.insertMany(query);
+
+        const cartQuery = {
+          username: req.body.username,
+          products: [],
+        };
+
+        await Cart.insertMany(cartQuery);
+
         res.redirect("/register/register-success");
       } catch (error) {
         console.log(error);

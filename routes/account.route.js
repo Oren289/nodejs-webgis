@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     res.render("account-page", {
       title: "My Account",
       layout: "layouts/main-nav-layout",
-      sessionUser: req.session.user.split(" ")[0],
+      sessionUser: req.session.user,
       user,
       msg: req.flash("msg"),
       errors: [],
@@ -48,7 +48,7 @@ router.put(
       res.render("account-page", {
         title: "My Account",
         layout: "layouts/main-nav-layout",
-        sessionUser: req.session.user.split(" ")[0],
+        sessionUser: req.session.user,
         user,
         oldemail: req.body.oldemail,
         msg: "",
@@ -113,7 +113,7 @@ router.put(
       res.render("account-page", {
         title: "My Account",
         layout: "layouts/main-nav-layout",
-        sessionUser: req.session.user.split(" ")[0],
+        sessionUser: req.session.user,
         user,
         msg: "",
         errors: errors.array(),
