@@ -93,6 +93,23 @@ footer {
   background-color: rgb(232, 232, 232);
 }
 
+.btn-radio {
+  background: none;
+  border-color: #80489c;
+  color: #80489c;
+  padding: 1rem 2rem;
+}
+
+.btn-radio:hover {
+  background: none;
+  border-color: #432c7a;
+  color: #432c7a;
+}
+
+.btn-radio label img {
+  max-height: 1.4rem;
+}
+
 .category-active {
   background-color: rgb(232, 232, 232);
 }

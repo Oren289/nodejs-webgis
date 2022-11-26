@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const methodOverride = require("method-override");
 
 const User = require("../model/user");
 const Cart = require("../model/cart");
+const Order = require("../model/order");
+
+router.use(methodOverride("_method"));
 
 router.get("/", async (req, res) => {
   if (!req.session.user) {
@@ -72,6 +76,26 @@ router.post("/", async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+  }
+});
+
+router.post("/delete", async (req, res) => {
+  const user = await User.findOne({ _id: req.session.userid });
+  try {
+    await Cart.updateMany({ username: user.username }, { $pull: { products: { id: req.body.product_id } } });
+    await Cart.updateOne(
+      { username: user.username },
+      {
+        $inc: {
+          grandTotal: -(parseInt(req.body.price) * parseInt(req.body.quantity)),
+        },
+      }
+    );
+    console.log(user.username);
+    console.log(req.body.product_id);
+    res.redirect("/cart");
+  } catch (err) {
+    console.log(err);
   }
 });
 
