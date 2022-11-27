@@ -55,6 +55,28 @@ footer {
   color: whitesmoke;
 }
 
+.jumbotron-home {
+  margin-top: -20;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.jumbotron-home h2 {
+  font-family: "Alfa Slab One", cursive;
+  color: #de4875;
+  font-size: 4em;
+}
+
+.jumbotron-home h5 {
+  color: whitesmoke;
+}
+
 .btn-primary {
   background-color: #ff8fb1;
   border-color: #ff8fb1;
@@ -270,5 +292,21 @@ footer {
 .cart-img {
   object-fit: cover;
   object-position: center;
-  max-height: 20rem;
+  width: 100%;
+  min-height: 100%;
+}
+
+.cart-card {
+  max-height: 10rem;
+  overflow: hidden;
+}
+
+.recommended-card {
+  text-decoration: none;
+  transition: all ease 0.3s;
+}
+
+.recommended-card:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transform: scale(1.03);
 }

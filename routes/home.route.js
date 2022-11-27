@@ -4,7 +4,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.render("index", {
     title: "Home Page",
-    layout: "layouts/main-nav-layout",
+    layout: "layouts/home-nav-layout",
     sessionUser: req.session.user,
     activeHome: "active",
   });

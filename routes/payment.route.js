@@ -72,6 +72,7 @@ router.post("/", async (req, res) => {
             username: user.username,
             email: user.email,
             phone: user.phone,
+            address: user.address,
           },
         },
       }
