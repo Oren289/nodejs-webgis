@@ -11,12 +11,17 @@ const orderSchema = new mongoose.Schema({
     default: [],
   },
   total: Number,
+  userinfo: {
+    type: Array,
+    default: [],
+  },
   deliveryOption: String,
   timestamp: Date,
   paymentMethod: String,
   paymentStatus: String,
   productReadyStatus: Boolean,
   deliveredStatus: Boolean,
+  grandTotal: Number,
 });
 
 const Order = new mongoose.model("order", orderSchema);

@@ -6,8 +6,16 @@ const User = require("../model/user");
 const Product = require("../model/product");
 
 router.get("/", async (req, res) => {
-  // const string = "A banana cake is a cake prepared using banana as a primary ingredient and typical cake ingredients. It can be prepared in various manners, including as a layer cake, as muffins and as cupcakes.";
+  // const string = "Kue Semprit is a pastries made from maizena, egg, and sugar. it is in flower-like shape with a chocolate chip in the middle of it";
   // const query = {
+  //   product_name: "Kue Semprit",
+  //   description: "Kue Semprit is a pastries made from maizena, egg, and sugar. it is in flower-like shape with a chocolate chip in the middle of it",
+  //   short_description: string.substring(0, 50) + "...",
+  //   price: 60000,
+  //   category: "kue kering",
+  //   lifespan: 180,
+  //   ingredients: ["egg", "maizena", "sugar"],
+  //   image: "kuesemprit.jpg",
   //   product_name: "Nastar",
   //   description: "A banana cake is a cake prepared using banana as a primary ingredient and typical cake ingredients. It can be prepared in various manners, including as a layer cake, as muffins and as cupcakes.",
   //   short_description: string.substring(0, 50) + "...",
@@ -17,7 +25,6 @@ router.get("/", async (req, res) => {
   //   ingredients: ["banana", "egg", "tapioca", "sugar"],
   //   image: "bolupisang.jpg",
   // };
-
   // await Product.insertMany(query);
 
   const products = await Product.find();

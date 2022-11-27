@@ -17,6 +17,7 @@ const accountRoute = require("./routes/account.route");
 const productListRoute = require("./routes/product-list.route");
 const cartRoute = require("./routes/cart.route");
 const paymentRoute = require("./routes/payment.route");
+const orderListRoute = require("./routes/order-list.route");
 
 app.set("view engine", "ejs");
 app.use(expressLayouts);
@@ -41,6 +42,7 @@ app.use("/myaccount", accountRoute);
 app.use("/products", productListRoute);
 app.use("/cart", cartRoute);
 app.use("/payment", paymentRoute);
+app.use("/orders", orderListRoute);
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);

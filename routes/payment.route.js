@@ -11,10 +11,15 @@ router.get("/", async (req, res) => {
   const user = await User.findOne({ _id: req.session.userid });
   const cart = await Cart.findOne({ username: user.username });
 
+  console.log(user.address);
+
   if (!req.session.user) {
     res.redirect("/login");
   } else if (cart.products.length === 0) {
     res.redirect("/products");
+  } else if (user.phone === undefined || user.address === undefined) {
+    req.flash("msg", "Please complete your phone and address before continue to payment.");
+    res.redirect("/myaccount");
   } else {
     try {
       const user = await User.findOne({ _id: req.session.userid });
@@ -33,24 +38,44 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  const user = await User.findOne({ _id: req.session.userid });
+  const cart = await Cart.findOne({ username: user.username });
+  const newId = uuidv4();
   try {
-    const user = await User.findOne({ _id: req.session.userid });
-    const cart = await Cart.findOne({ username: user.username });
-
     const query = {
-      id: uuidv4(),
+      id: newId,
       username: user.username,
       products: cart.products,
       total: cart.products.length,
+      userinfo: [],
       deliveryOption: req.body.deliveryOption,
       timestamp: new Date(),
       paymentMethod: req.body.payment_method,
       paymentStatus: "unpaid",
       productReadyStatus: false,
       deliveredStatus: false,
+      grandTotal: cart.grandTotal,
     };
 
     await Order.insertMany(query);
+    const order = await Order.findOne({ username: user.username, id: newId });
+
+    console.log(order);
+
+    await Order.updateOne(
+      { username: user.username, id: order.id },
+      {
+        $push: {
+          userinfo: {
+            id: user._id,
+            name: user.name,
+            username: user.username,
+            email: user.email,
+            phone: user.phone,
+          },
+        },
+      }
+    );
 
     await Cart.updateOne(
       { username: user.username },

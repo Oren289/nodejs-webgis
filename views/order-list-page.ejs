@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="fw-bold">Orders List</h3>
+          <% orders.forEach(order => { %>
+          <div class="card mb-3 shadow-sm">
+            <div class="card-header">Order Id: <%= order.id %></div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <h4>Products</h4>
+                  <% (order.products).forEach(product => { %>
+                  <div><i class="bi bi-check-circle-fill text-success"></i> <%= product.name %> <i class="bi bi-arrow-right"></i> <span class="fw-bold">Rp <%= product.price %> x<%= product.quantity %></span></div>
+                  <% }) %>
+                  <hr />
+                  <div class="fw-bold">Total: Rp <%= order.grandTotal %></div>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <h4>Order Details</h4>
+                    <div class="col">
+                      <div>Timestamp: <span class="fw-bold"><%= order.timestamp %></span></div>
+                      <div>Delivery Option: <span class="fw-bold"><%= order.deliveryOption %></span></div>
+                      <div>Payment Method: <span class="fw-bold"><%= order.paymentMethod %></span></div>
+                      <div>Payment Status: <span class="fw-bold"><%= order.paymentStatus %> </span></div>
+                    </div>
+                    <div class="col">
+                      <div>Product Ready: <span class="fw-bold"><%= order.productReadyStatus %></span></div>
+                      <div>Delivered Status: <span class="fw-bold"><%= order.deliveredStatus %></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
