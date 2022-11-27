@@ -6,9 +6,53 @@
 
 body {
   margin: 0;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(242, 242, 242);
   font-family: "Titillium Web", sans-serif;
   color: rgb(81, 81, 81);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  flex: 1;
+}
+
+footer {
+  margin-top: 8rem;
+  background-color: #432c7a;
+  color: whitesmoke;
+}
+
+.footer-logo {
+  font-family: "Alfa Slab One", cursive;
+  font-size: 2em;
+  text-decoration: none;
+  color: #ff8fb1;
+}
+
+.footer-logo:hover {
+  color: whitesmoke;
+}
+
+.jumbotron {
+  width: 100%;
+  height: 16rem;
+  border-radius: 16px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.jumbotron h2 {
+  font-family: "Alfa Slab One", cursive;
+  color: #de4875;
+  font-size: 4em;
+}
+
+.jumbotron h5 {
+  color: whitesmoke;
 }
 
 .btn-primary {
@@ -25,6 +69,49 @@ body {
   background-color: #80489c;
   border-color: #80489c;
   outline: none;
+}
+
+.btn-secondary {
+  background: none;
+  border-color: #ff8fb1;
+  color: #ff8fb1;
+}
+
+.btn-secondary:hover {
+  background: none;
+  border-color: #80489c;
+  color: #80489c;
+}
+
+.btn-category {
+  color: rgb(81, 81, 81);
+  background-color: whitesmoke;
+}
+
+.btn-category:hover {
+  color: rgb(81, 81, 81);
+  background-color: rgb(232, 232, 232);
+}
+
+.btn-radio {
+  background: none;
+  border-color: #80489c;
+  color: #80489c;
+  padding: 1rem 2rem;
+}
+
+.btn-radio:hover {
+  background: none;
+  border-color: #432c7a;
+  color: #432c7a;
+}
+
+.btn-radio label img {
+  max-height: 1.4rem;
+}
+
+.category-active {
+  background-color: rgb(232, 232, 232);
 }
 
 .log-reg-card {
@@ -131,4 +218,57 @@ body {
 
 .cart-button:hover {
   color: #80489c;
+}
+
+.product-card {
+  width: 13.8rem;
+  height: 20rem;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all ease 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product-card img {
+  border-radius: 12px 12px 0 0;
+  height: 55%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.social-link a {
+  text-decoration: none;
+  color: whitesmoke;
+  transition: all ease 0.3s;
+}
+
+.social-link a:hover {
+  text-decoration: none;
+  color: rgb(202, 202, 202);
+}
+
+.excerpt {
+  font-size: 0.8em;
+}
+
+.detail-img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+
+.detail-img:hover {
+  border: 3px solid #ff8fb1;
+}
+
+.cart-img {
+  object-fit: cover;
+  object-position: center;
+  max-height: 20rem;
 }

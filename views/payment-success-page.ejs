@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3>Thank you for ordering, <%= sessionUser %>!</h3>
+          <h6>Please transfer your payment to this account</h6>
+          <h2 class="fw-bold my-5">
+            <% if (paymentMethod === "bni") { %> 1341316850 a.n. Ilhan Mahardika Pratama <% } %> <% if (paymentMethod === "bsi") { %> 7154000601 a.n. Ilhan Mahardika Pratama <% } %> <% if (paymentMethod === "dana") { %> 1341316850 a.n.
+            Ilhan Mahardika Pratama <% } %> <% if (paymentMethod === "ovo") { %> 7154000601 a.n. Ilhan Mahardika Pratama <% } %>
+          </h2>
+          <div class="d-grid">
+            <a class="btn btn-primary" href="/cart">Back to Cart</a>
+            <a class="btn btn-secondary" href="/orders">View my Orders</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

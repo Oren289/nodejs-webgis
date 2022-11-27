@@ -10,7 +10,7 @@
           <a class="nav-link fw-bold <%= locals.activeHome?activeHome:null %>" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold <%= locals.activeProduct?activeProduct:null %>" href="#">Products</a>
+          <a class="nav-link fw-bold <%= locals.activeProduct?activeProduct:null %>" href="/products">Products</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold <%= locals.activeAbout?activeAbout:null %>" href="#">About</a>
@@ -23,18 +23,22 @@
         <i class="bi bi-search-heart"></i>
       </button>
     </form>
-    <a href="#" class="cart-button me-3"><i class="bi bi-cart4"></i></a>
+    <a href="/cart" class="cart-button me-3"><i class="bi bi-cart4"></i></a>
     <div class="dropdown">
       <button class="btn dropdown-toggle" type="button" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false"><img class="user-picture" src="/img/blank-pp.png" alt="profilepic" /></button>
       <ul class="dropdown-menu">
         <li>
-          <span class="dropdown-item-text">Hello, <strong><%= sessionUser %></strong> &#128075;</span>
+          <span class="dropdown-item-text">Hello, <strong><%= locals.sessionUser?sessionUser.split(' ')[0]:"Guest"%></strong> &#128075;</span>
         </li>
         <li><hr class="dropdown-divider" /></li>
         <li><a class="dropdown-item" href="/myaccount">My Account</a></li>
-        <li><a class="dropdown-item" href="#">Purchase List</a></li>
+        <li><a class="dropdown-item" href="/orders">Order List</a></li>
         <li><a class="dropdown-item" href="#">Wishlist</a></li>
+        <% if(sessionUser){ %>
         <li><a class="btn btn-danger d-grid mx-2 mt-3 badge" href="/logout">Log out</a></li>
+        <% } else { %>
+        <li><a class="btn btn-success d-grid mx-2 mt-3 badge" href="/login">Log in</a></li>
+        <% } %>
       </ul>
     </div>
   </div>
