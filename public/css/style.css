@@ -77,6 +77,28 @@ footer {
   color: whitesmoke;
 }
 
+.jumbotron-home-2 {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.jumbotron-home-2 h2 {
+  font-family: "Alfa Slab One", cursive;
+  color: #80489c;
+  font-size: 4em;
+}
+
+.jumbotron-home-2 h5 {
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
 .btn-primary {
   background-color: #ff8fb1;
   border-color: #ff8fb1;
@@ -243,7 +265,7 @@ footer {
 }
 
 .product-card {
-  width: 13.8rem;
+  width: 14rem;
   height: 20rem;
   border-radius: 12px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
