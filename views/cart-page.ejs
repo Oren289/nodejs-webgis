@@ -13,7 +13,7 @@
               <div class="row">
                 <div class="col">
                   <h5 class="card-title"><%= item.name %></h5>
-                  <h4 class="card-text fw-bold">Total: Rp <%= item.price %></h4>
+                  <h4 class="card-text fw-bold">Total: Rp <%= (item.price*item.quantity).toLocaleString() %></h4>
                 </div>
                 <div class="col-md-1 d-flex align-items-center">
                   <h2 class="fw-bold">x<%= item.quantity %></h2>
@@ -45,7 +45,7 @@
               <h5>Grand Total:</h5>
             </div>
             <div class="col">
-              <h5 class="text-end fw-bold">Rp <%= carts.grandTotal %></h5>
+              <h5 class="text-end fw-bold">Rp <%= carts.grandTotal.toLocaleString() %></h5>
             </div>
           </div>
           <div class="d-grid mt-2">

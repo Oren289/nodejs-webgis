@@ -25,7 +25,7 @@
                 <td><%= (order.id).substring(0, 9) + "..." %></td>
                 <td><%= order.username %></td>
                 <td><%= (order.timestamp.toString()).substring(0, 21) %></td>
-                <td>Rp <%= order.grandTotal %></td>
+                <td>Rp <%= order.grandTotal.toLocaleString() %></td>
                 <td><%= order.paymentStatus %></td>
                 <td><%= order.productReadyStatus %></td>
                 <td><%= order.deliveredStatus %></td>

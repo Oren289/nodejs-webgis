@@ -22,4 +22,28 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/:id", async (req, res) => {
+  if (!req.session.user) {
+    res.redirect("/login");
+  } else {
+    try {
+      const order = await Order.findOne({ id: req.params.id });
+      console.log(order.paymentStatus);
+      await Order.updateOne(
+        { id: order.id },
+        {
+          $set: {
+            paymentStatus: "requesting confirmation",
+            accountNumber: req.body.accountNumber,
+            accountName: req.body.accountName,
+          },
+        }
+      );
+      res.redirect("/orders");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+});
+
 module.exports = router;

@@ -29,7 +29,7 @@
         <img src="/img/products-img/<%= product.image %>" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title fw-bold" style="color: #80489c"><%= product.product_name %></h5>
-          <h5 class="card-subtitle fw-bold">Rp <%= product.price %></h5>
+          <h5 class="card-subtitle fw-bold">Rp <%= product.price.toLocaleString() %></h5>
           <p class="card-text excerpt mt-2"><%= product.short_description %></p>
           <div class="">
             <div class="btn btn-category badge"><i class="fa-solid <% if (product.category === "kue basah"){ %>

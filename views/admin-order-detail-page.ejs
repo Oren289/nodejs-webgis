@@ -71,6 +71,30 @@
           </div>
           <div class="row g-3 align-items-center">
             <div class="col-md-2">
+              <label for="inputPassword6" class="col-form-label fw-bold">Account Number</label>
+            </div>
+            <div class="col">
+              <div><%= order.accountNumber?order.accountNumber:"" %></div>
+            </div>
+          </div>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-2">
+              <label for="inputPassword6" class="col-form-label fw-bold">Account Name</label>
+            </div>
+            <div class="col">
+              <div><%= order.accountName?order.accountName:"" %></div>
+            </div>
+          </div>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-2">
+              <label for="inputPassword6" class="col-form-label fw-bold">Total Payment</label>
+            </div>
+            <div class="col">
+              <div><%= order.grandTotal.toLocaleString() %></div>
+            </div>
+          </div>
+          <div class="row g-3 align-items-center">
+            <div class="col-md-2">
               <label for="inputPassword6" class="col-form-label fw-bold">Payment Status</label>
             </div>
             <div class="col">
@@ -95,11 +119,30 @@
           </div>
           <div class="row align-items-center mt-3">
             <div class="col d-grid">
-              <a href="/admin-home/change-payment-status/<%= order.username %>" class="btn btn-primary">Confirm Payment</a>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Confirm Payment</button>
               <a href="/admin-edit/<%= order.id %>" class="btn btn-primary mt-2">Edit Statuses</a>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Payment Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Are you sure to confirm this user's payment?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="/admin-home/change-payment-status/<%= order.id %>" class="btn btn-primary">Confirm Payment</a>
       </div>
     </div>
   </div>

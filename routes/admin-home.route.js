@@ -43,13 +43,13 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/change-payment-status/:username", async (req, res) => {
+router.get("/change-payment-status/:orderid", async (req, res) => {
   if (!req.session.admin) {
     res.redirect("admin-login");
   } else {
-    const order = await Order.findOne({ username: req.params.username });
+    const order = await Order.findOne({ id: req.params.orderid });
     await Order.updateOne(
-      { username: order.username },
+      { id: order.id },
       {
         $set: {
           paymentStatus: "payment confirmed",

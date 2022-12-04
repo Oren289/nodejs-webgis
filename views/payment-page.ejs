@@ -6,11 +6,11 @@
           <h3 class="fw-bold">Checkout Summary</h3>
           <div class="mt-3">
             <% (cart.products).forEach(cart => { %>
-            <div><i class="bi bi-check-circle-fill text-success"></i> <%= cart.name %> <i class="bi bi-arrow-right"></i> <span class="fw-bold">Rp <%= cart.price %> x<%= cart.quantity %> </span></div>
+            <div><i class="bi bi-check-circle-fill text-success"></i> <%= cart.name %> <i class="bi bi-arrow-right"></i> <span class="fw-bold">Rp <%= cart.price.toLocaleString() %> x<%= cart.quantity %> </span></div>
             <% }) %>
           </div>
           <hr />
-          <h3 class="text-end">Total: <span class="fw-bold">Rp <%= cart.grandTotal %> </span></h3>
+          <h3 class="text-end">Total: <span class="fw-bold">Rp <%= cart.grandTotal.toLocaleString() %> </span></h3>
         </div>
       </div>
     </div>

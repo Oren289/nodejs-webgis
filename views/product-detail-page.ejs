@@ -11,7 +11,7 @@
     </div>
     <div class="col">
       <h2 class="fw-bold"><%= product.product_name %></h2>
-      <h1 class="fw-bold" id="price">Rp <%= product.price %></h1>
+      <h1 class="fw-bold" id="price">Rp <%= product.price.toLocaleString() %></h1>
       <h4 class="mt-5">Description</h4>
       <p><%= product.description %></p>
       <div class="card">
@@ -75,7 +75,7 @@
         <img src="/img/products-img/<%= product.image %>" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title fw-bold" style="color: #80489c"><%= product.product_name %></h5>
-          <h5 class="card-subtitle fw-bold">Rp <%= product.price %></h5>
+          <h5 class="card-subtitle fw-bold">Rp <%= product.price.toLocaleString() %></h5>
           <p class="card-text excerpt mt-2"><%= product.short_description %></p>
           <div class="">
             <div class="btn btn-category badge">

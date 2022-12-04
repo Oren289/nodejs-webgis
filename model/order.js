@@ -19,6 +19,8 @@ const orderSchema = new mongoose.Schema({
   timestamp: Date,
   paymentMethod: String,
   paymentStatus: String,
+  accountNumber: String,
+  accountName: String,
   productReadyStatus: Boolean,
   deliveredStatus: Boolean,
   grandTotal: Number,

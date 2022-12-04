@@ -8,31 +8,31 @@ const Cart = require("../model/cart");
 const Order = require("../model/order");
 
 router.get("/", async (req, res) => {
-  const user = await User.findOne({ _id: req.session.userid });
-  const cart = await Cart.findOne({ username: user.username });
-
-  console.log(user.address);
-
   if (!req.session.user) {
     res.redirect("/login");
-  } else if (cart.products.length === 0) {
-    res.redirect("/products");
-  } else if (user.phone === undefined || user.address === undefined) {
-    req.flash("msg", "Please complete your phone and address before continue to payment.");
-    res.redirect("/myaccount");
   } else {
-    try {
-      const user = await User.findOne({ _id: req.session.userid });
-      const cart = await Cart.findOne({ username: user.username });
+    const user = await User.findOne({ _id: req.session.userid });
+    const cart = await Cart.findOne({ username: user.username });
 
-      res.render("payment-page", {
-        title: "Payment",
-        layout: "layouts/main-nav-layout",
-        sessionUser: req.session.user,
-        cart,
-      });
-    } catch (error) {
-      console.log(error);
+    if (cart.products.length === 0) {
+      res.redirect("/products");
+    } else if (user.phone === undefined || user.address === undefined) {
+      req.flash("msg", "Please complete your phone and address before continue to payment.");
+      res.redirect("/myaccount");
+    } else {
+      try {
+        const user = await User.findOne({ _id: req.session.userid });
+        const cart = await Cart.findOne({ username: user.username });
+
+        res.render("payment-page", {
+          title: "Payment",
+          layout: "layouts/main-nav-layout",
+          sessionUser: req.session.user,
+          cart,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 });

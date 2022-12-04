@@ -12,10 +12,10 @@
                 <div class="col-md-3">
                   <h4>Products</h4>
                   <% (order.products).forEach(product => { %>
-                  <div><i class="bi bi-check-circle-fill text-success"></i> <%= product.name %> <i class="bi bi-arrow-right"></i> <span class="fw-bold">Rp <%= product.price %> x<%= product.quantity %></span></div>
+                  <div><i class="bi bi-check-circle-fill text-success"></i> <%= product.name %> <i class="bi bi-arrow-right"></i> <span class="fw-bold">Rp <%= product.price.toLocaleString() %> x<%= product.quantity %></span></div>
                   <% }) %>
                   <hr />
-                  <div class="fw-bold">Total: Rp <%= order.grandTotal %></div>
+                  <div class="fw-bold">Total: Rp <%= order.grandTotal.toLocaleString() %></div>
                 </div>
                 <div class="col">
                   <div class="row">
@@ -34,6 +34,11 @@
                 </div>
               </div>
             </div>
+            <div class="card-footer d-flex justify-content-end">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#id<%= order.id %>" <% if (order.paymentStatus !== "unpaid") { %>
+                disabled
+              <% } %>>I Have Paid the Order</button>
+            </div>
           </div>
           <% }) %>
         </div>
@@ -41,3 +46,35 @@
     </div>
   </div>
 </div>
+
+<% orders.forEach(order => { %>
+<!-- Modal -->
+<div class="modal fade" id="id<%= order.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Payment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/orders/<%= order.id %>" method="POST">
+        <div class="modal-body">
+          <h5 class="fw-bold">Order id: <%= order.id %></h5>
+          <div class="mb-3 mt-3">
+            <label for="accountNumber" class="form-label"><%= order.paymentMethod.toUpperCase() %> Account Number</label>
+            <input type="text" class="form-control" id="accountNumber" aria-describedby="emailHelp" placeholder="Your account number" name="accountNumber"/>
+            <div id="emailHelp" class="form-text">Make sure you enter the correct account number, otherwise we can't confirm your payment!</div>
+          </div>
+          <div class="mb-3">
+            <label for="accountName" class="form-label">Account Name</label>
+            <input type="text" class="form-control" id="accountName" placeholder="e.g. Nina Silvia" name="accountName"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Payment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<% }) %>
