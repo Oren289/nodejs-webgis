@@ -4,14 +4,15 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const dotenv = require("dotenv").config();
+const connectDB = require("./utils/db");
 
 const http = require("http");
-
-require("./utils/db");
 
 const app = express();
 //const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
+
+connectDB();
 
 // Routers
 const homeRoute = require("./routes/home.route");
