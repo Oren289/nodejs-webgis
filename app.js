@@ -5,7 +5,8 @@ const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 
 const app = express();
-const port = 3001;
+const hostname = "0.0.0.0";
+const port = process.env.PORT || 3001;
 
 // Routers
 const homeRoute = require("./routes/home.route");
@@ -35,6 +36,6 @@ app.use("/logout", logoutRoute);
 app.use("/input", inputRoute);
 app.use("/table", tableRoute);
 
-app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
+app.listen(port, hostname, () => {
+  console.log(`Listening at http://${hostname}:${port}`);
 });
