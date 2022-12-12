@@ -1,12 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
-router.get("/", (req, res) => {
+require("../utils/db");
+const Sekolah = require("../model/sekolah");
+
+router.get("/", async (req, res) => {
+  const sekolah = await Sekolah.find();
   res.render("index", {
     title: "Home Page",
-    layout: "layouts/home-nav-layout",
+    layout: "layouts/admin-nav-layout",
     sessionUser: req.session.user,
     activeHome: "active",
+    sekolah,
   });
   // res.render("index", {
   //   title: "Home Page",
@@ -14,5 +20,4 @@ router.get("/", (req, res) => {
   //   sessionUser: req.session.user,
   // });
 });
-
 module.exports = router;

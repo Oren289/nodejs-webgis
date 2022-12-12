@@ -26,7 +26,7 @@ footer {
 
 .footer-logo {
   font-family: "Alfa Slab One", cursive;
-  font-size: 2em;
+  font-size: 1.5em;
   text-decoration: none;
   color: #ff8fb1;
 }
@@ -183,7 +183,7 @@ footer {
 
 .navbar-brand {
   font-family: "Alfa Slab One", cursive;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .navbar-nav:first-child {

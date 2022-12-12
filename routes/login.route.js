@@ -39,9 +39,8 @@ router.post("/", [check("password").isLength({ min: 8 }).withMessage("Password m
       if (user) {
         const match = await bcrypt.compare(req.body.password.trim(), user.password);
         if (match) {
-          req.session.user = user.name;
-          req.session.userid = user._id;
-          res.redirect("/home");
+          req.session.user = user.username;
+          res.redirect("/");
         } else {
           req.flash("msg", "Wrong username or password  ");
           res.render("login-page", {
