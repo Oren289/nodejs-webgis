@@ -3,10 +3,14 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
+const dotenv = require(dotenv).config();
+
 const http = require("http");
 
+require("../utils/db");
+
 const app = express();
-const hostname = "0.0.0.0";
+//const hostname = "0.0.0.0";
 const port = process.env.PORT || 3001;
 
 // Routers
@@ -38,5 +42,5 @@ app.use("/input", inputRoute);
 app.use("/table", tableRoute);
 
 app.listen(port, hostname, () => {
-  console.log(`Listening at http://${hostname}:${port}`);
+  console.log(`Listening at http://localhost:${port}`);
 });
