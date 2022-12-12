@@ -2,11 +2,11 @@
   "name": "node-webgis",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ejs",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.ejs"
+    "start": "node app.js"
   },
-  "author": "",
+  "author": "Oren289",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
