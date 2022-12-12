@@ -41,6 +41,6 @@ app.use("/logout", logoutRoute);
 app.use("/input", inputRoute);
 app.use("/table", tableRoute);
 
-app.listen(port, hostname, () => {
+app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
