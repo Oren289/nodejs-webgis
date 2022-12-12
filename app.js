@@ -7,7 +7,7 @@ const dotenv = require("dotenv").config();
 
 const http = require("http");
 
-require("../utils/db");
+require("./utils/db");
 
 const app = express();
 //const hostname = "0.0.0.0";
